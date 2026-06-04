@@ -108,8 +108,3 @@ MIT License
 
 欢迎提交 Issue 和 Pull Request！
 
-## 注意事项
-
-- 请确保在上传到 GitHub 前移除所有硬编码的 API 密钥
-- 敏感配置应通过环境变量或 `.env` 文件管理
-- `.env` 文件已添加到 `.gitignore`，不会被提交
