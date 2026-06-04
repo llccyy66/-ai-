@@ -1,0 +1,38 @@
+[
+  {
+    "task_id": "001_20260513",
+    "task_status": "执行失败",
+    "video_topic": "情绪管理的科学方法",
+    "word_count_limit": 300,
+    "enable_text2image": true,
+    "task_folder_path": "./任务列表/任务_001_20260513_情绪管理的科学方法",
+    "retry_count": 0,
+    "created_time": "2026-05-13 14:45:39",
+    "last_updated_time": "2026-05-14 11:32:36",
+    "remark": ""
+  },
+  {
+    "task_id": "002_20260513",
+    "task_status": "执行失败",
+    "video_topic": "银发经济",
+    "word_count_limit": 300,
+    "enable_text2image": false,
+    "task_folder_path": "./任务列表/任务_002_20260513_银发经济",
+    "retry_count": 0,
+    "created_time": "2026-05-13 14:58:47",
+    "last_updated_time": "2026-05-14 11:32:50",
+    "remark": ""
+  },
+  {
+    "task_id": "003_20260513",
+    "task_status": "执行失败",
+    "video_topic": "特朗普和拜登的辩论里，那些没被发现的谎言",
+    "word_count_limit": 300,
+    "enable_text2image": false,
+    "task_folder_path": "./任务列表/任务_003_20260513_特朗普和拜登的辩论里",
+    "retry_count": 0,
+    "created_time": "2026-05-13 15:58:01",
+    "last_updated_time": "2026-05-14 11:33:04",
+    "remark": ""
+  }
+]

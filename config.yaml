@@ -1,0 +1,227 @@
+# ============================================================
+# 视频模板配置文件
+# ============================================================
+# 本文件用于配置剪映草稿生成的样式参数
+# 修改后无需重启，下次运行工作流自动生效
+
+# ============================================================
+# 关键词高亮配置
+# ============================================================
+keyword_highlight:
+  enabled: false
+  font_name: "Microsoft YaHei"
+  font_size: 48
+  font_color: "&H00FFFFFF"
+  highlight_color: "&H00FFD700"
+  highlight_bg_color: "&H80000000"
+  outline_color: "&H00000000"
+  outline_width: 2
+  shadow: true
+  shadow_color: "&H80000000"
+  animation: "fade"
+  animation_duration: 0.3
+  position_x: 50
+  position_y: 85
+  max_keywords: 10
+  min_keyword_length: 2
+  whisper_model: "small"
+  whisper_device: "cpu"
+  llm_model: "Pro/deepseek-ai/DeepSeek-V3.2"
+  output_dir: "output"
+
+template:
+  # 是否启用模板功能
+  # true: 使用以下配置生成视频样式
+  # false: 使用代码默认样式
+  enabled: true
+  
+  # ============================================================
+  # 字幕配置
+  # ============================================================
+  subtitle:
+    font_name: "新青年体"  # 字幕字体名称
+    font_size: 7.0           # 字幕字体大小（数值越大字越大）
+    font_color: [0, 0, 0]  # 字幕颜色（RGB格式，范围0.0~1.0）
+                               # [1,1,1]=白色, [0,0,0]=黑色
+    bold: true               # 是否加粗（true=加粗，false=正常）
+    alignment: 1             # 对齐方式：0=左对齐，1=居中，2=右对齐
+    position: [0, -0.5648148148]      # 字幕位置（坐标系：-1~1）
+                               # X轴: -1=左, 0=中, 1=右
+                               # Y轴: -1=上, 0=中, 1=下
+    outline: false           # 是否添加描边效果
+    outline_color: [0.0, 0.0, 0.0]  # 描边颜色
+  
+  # ============================================================
+  # 标题配置
+  # ============================================================
+  title:
+    enabled: false            # 是否启用标题常驻（true=启用，false=不启用）
+    font_name: "Microsoft YaHei"  # 标题字体名称
+    font_size: 6.0           # 标题字体大小
+    font_color: [0.0, 0.0, 0.0]  # 标题颜色（当前为黑色）
+    bold: true               # 是否加粗
+    alignment: 0             # 对齐方式
+    position: [-1, 0.9] # 标题位置（左上区域）
+    text: "财富认知"         # 默认标题文字
+  
+  # ============================================================
+  # 图片配置(文生图图片)
+  # ============================================================
+  image:
+    animation: true          # 是否启用图片动画
+    intro_type: "渐显"       # 进入动画类型：渐显、缩放进入、淡入等
+    intro_duration: "0.5s"   # 进入动画时长
+    outro_type: "渐隐"       # 退出动画类型：渐隐、缩放退出、淡出等
+    outro_duration: "0.5s"   # 退出动画时长
+    scale_x: 0.5             # X轴缩放比例（1.0=原始大小）
+    scale_y: 0.5             # Y轴缩放比例
+    position: [0, 0.2314]         # 图片位置（坐标系：-1~1）
+                             # X轴: -1=左, 0=中, 1=右
+                             # Y轴: -1=上, 0=中, 1=下
+  
+  # ============================================================
+  # 画布配置
+  # ============================================================
+  canvas:
+    width: 1921              # 视频宽度（像素），推荐1920
+    height: 1080             # 视频高度（像素），推荐1080
+    background_color: [0.95, 0.95, 0.95]  # 背景颜色（浅灰色）
+    background_image: "C:/Users/18622/Documents/trae_projects/cozetest/视频封面.png"  # 背景图片本地路径或URL（为空则使用背景色）
+    background_scale: [1.0, 1.0]  # 背景图片缩放比例
+    background_position: [0, 0]   # 背景图片位置
+  
+  # ============================================================
+  # 背景音乐配置
+  # ============================================================
+  audio:
+    enabled: true            # 是否启用背景音乐
+    file: "C:/Users/18622/Documents/trae_projects/cozetest/music.mp3"  # 背景音乐本地路径或URL（使用项目中已存在的文件）
+    volume_db: -15           # 音量（单位：dB，0为原始音量，负值为降低音量，建议-15~-25避免盖过人声）
+    loop: false              # 是否循环播放
+
+# ============================================================
+# 配置说明
+# ============================================================
+# 位置坐标系示例：
+# ┌─────────────────────────────┐
+# │  (-1,-1)     (0,-1)     (1,-1)  │ ← Y=-1（顶部）
+# │                                 │
+# │  (-1,0)      (0,0)      (1,0)   │ ← Y=0（垂直居中）
+# │                                 │
+# │  (-1,1)      (0,1)      (1,1)   │ ← Y=1（底部）
+# └─────────────────────────────┘
+#   X=-1       X=0       X=1
+# （左侧）    （水平居中）  （右侧）
+
+# 常用颜色参考：
+# - 白色: [1.0, 1.0, 1.0]
+# - 黑色: [0.0, 0.0, 0.0]
+# - 红色: [1.0, 0.0, 0.0]
+# - 绿色: [0.0, 1.0, 0.0]
+# - 蓝色: [0.0, 0.0, 1.0]
+# - 灰色: [0.5, 0.5, 0.5]
+# - 浅灰: [0.95, 0.95, 0.95]
+
+# ============================================================
+# 任务队列系统配置
+# ============================================================
+task_queue:
+  queue_file_path: "./任务队列.json"    # 顶层总控文件固定路径
+  task_root_folder: "./任务列表/"       # 子任务总文件夹根路径
+  max_retry_count: 2                    # 单任务失败最大重试次数
+  default_word_count: 300               # 口播文案默认字数约束
+  task_folder_naming_rule: "任务_{task_id}_{date}_{topic_short}" # 子文件夹命名模板
+
+# 大模型配置（可复用原有配置）
+llm:
+  api_key: ""
+  base_url: ""
+  model_name: "Pro/deepseek-ai/DeepSeek-V3.2"
+  # 垂类账号固定提示词（锁定内容风格，如财经/心理学/职场等）
+  system_prompt: "你是一名专业的垂类短视频内容策划，擅长生成有传播力、符合账号人设的视频主题与口播文案，输出内容口语化、有节奏、无书面化表达"
+
+# 文生图功能配置
+text2image:
+  api_key: ""
+  base_url: ""
+  model_name: ""
+  default_image_path: "c:/Users/18622/Documents/trae_projects/cozetest/picture.jpg"  # 禁用文生图时的全局默认图片路径
+  enable_ratio: 0.25  # 文生图随机启用比例，0.25=每3条默认图、1条文生图
+  max_images: 1  # 最大生成图片数量
+
+# B类任务常驻图片配置（与文生图图片分开）
+b_task_image:
+  enabled: true                     # 是否启用B类任务常驻图片
+  file_path: "c:/Users/18622/Documents/trae_projects/cozetest/picture.jpg"  # B类任务常驻图片路径
+  scale_x: 0.3                      # X轴缩放比例（1.0=原始大小）
+  scale_y: 0.3                      # Y轴缩放比例
+  position: [0, 0.185185185185]                  # 图片位置（坐标系：-1~1）
+                                    # X轴: -1=左, 0=中, 1=右
+                                    # Y轴: -1=上, 0=中, 1=下
+  animation: false                  # 是否启用图片动画
+  intro_type: "渐显"                # 进入动画类型：渐显、缩放进入、淡入等
+  intro_duration: "0.5s"            # 进入动画时长
+  outro_type: "渐隐"                # 退出动画类型：渐隐、缩放退出、淡出等
+  outro_duration: "0.5s"            # 退出动画时长
+
+# 点子生成器配置
+idea_generator:
+  default_topic_num: 20  # 单次默认生成主题数量
+  topic_output_rule: "纯序号+主题文本，无额外格式，每行1个主题"
+
+# TTS配置
+tts:
+  provider: "minimax"  # TTS服务商：bailian（阿里百炼）、minimax（MiniMax）
+  # === MiniMax配置（HTTP协议 - 满血版）===
+  api_key: ""  # MiniMax API密钥（请通过环境变量 MINIMAX_API_KEY 设置或在此配置）
+  model: "speech-2.8-turbo"  # TTS模型：speech-2.8-hd, speech-2.8-turbo, speech-02-hd, speech-02-turbo
+  voice: "Chinese (Mandarin)_Warm_Bestie"  # 音色选择
+  
+  # === 基础声音参数 ===
+  speed: 1.0  # 语速 [0.5, 2]，默认1.0
+  vol: 1.0  # 音量 (0, 10]，默认1.0
+  pitch: 0  # 语调 [-12, 12]，默认0
+  
+  # === 情绪控制 ===
+  emotion: "calm"  # 情绪控制：happy(高兴), sad(悲伤), angry(愤怒), fearful(害怕), disgusted(厌恶), surprised(惊讶), calm(中性)，默认无
+  
+  # === 声音效果器（voice_modify） ===
+  voice_modify:
+    pitch: 0  # 音高调整 [-100, 100]，接近-100声音更低沉，接近100声音更明亮
+    intensity: 0  # 强度调整 [-100, 100]，接近-100声音更刚劲，接近100声音更轻柔
+    timbre: 0  # 音色调整 [-100, 100]，接近-100声音更浑厚，接近100声音更清脆
+    sound_effects: null  # 音效：spacious_echo(空旷回音), auditorium_echo(礼堂广播), lofi_telephone(电话失真), robotic(机械音)，默认无
+  
+  # === 高级功能 ===
+  latex_read: false  # 是否支持朗读latex公式，默认false
+  text_normalization: false  # 中英文本规范化，提升数字阅读性能，默认false
+  subtitle_enable: false  # 字幕服务开关，默认false
+  language_boost: null  # 语言增强：Chinese, Chinese,Yue, English, Arabic等，默认null
+  
+  # === 发音词典 ===
+  pronunciation_dict:  # 自定义发音，格式：{"tone": ["词/(拼音)", "词/替代发音"]}
+    # tone:
+    #   - "处理/(chu3)(li1)"
+  
+  # === 音频输出设置 ===
+  output_format: "hex"  # 输出格式：url, hex，默认hex
+  stream: false  # 是否流式输出，默认false
+  
+  # === 阿里百炼配置（备用）===
+  # api_key: ""  # 阿里百炼API密钥
+  # model: "qwen3-tts-flash"
+  # voice: "Moon"
+  # region: "beijing"
+
+# 批量任务队列监控配置
+batch_monitor:
+  enabled: true                      # 是否启用批量任务监控系统集成
+
+# 剪映草稿保存路径配置
+draft_save:
+  enabled: true
+  path: "D:\\JianyingPro Drafts"
+  # 草稿双位置保存配置
+  backup_to_project: true              # 是否同时保存到任务目录
+  # 草稿命名规则配置
+  naming_rule: "project_dir"           # 命名规则: project_dir=使用任务目录名称, timestamp=使用时间戳(draft_{timestamp})

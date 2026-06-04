@@ -1,0 +1,276 @@
+# TTS服务商配置文件
+# 此文件包含各服务商的默认配置信息
+# 动态发现失败时将使用此文件作为fallback
+
+providers:
+  bailian:
+    name: "阿里百炼"
+    description: "阿里云灵积平台TTS服务"
+    models:
+      - model_id: "qwen3-tts-flash"
+        name: "Qwen3 TTS Flash"
+        description: "轻量级TTS模型，响应速度快"
+      - model_id: "qwen3-tts-instruct-flash"
+        name: "Qwen3 TTS Instruct Flash"
+        description: "支持指令控制的TTS模型"
+    voices:
+      qwen3-tts-flash:
+        - voice_name: "Cherry"
+          name: "樱桃"
+          gender: "female"
+          description: "温柔甜美的女声"
+        - voice_name: "Moon"
+          name: "月白"
+          gender: "male"
+          description: "率性帅气的男声"
+        - voice_name: "Xiaoming"
+          name: "小明"
+          gender: "male"
+          description: "阳光活力的男声"
+        - voice_name: "Xiaofang"
+          name: "小芳"
+          gender: "female"
+          description: "亲切自然的女声"
+      qwen3-tts-instruct-flash:
+        - voice_name: "Cherry"
+          name: "樱桃"
+          gender: "female"
+          description: "温柔甜美的女声"
+        - voice_name: "Moon"
+          name: "月白"
+          gender: "male"
+          description: "率性帅气的男声"
+    parameters:
+      - name: "api_key"
+        type: "string"
+        required: true
+        description: "阿里百炼API密钥"
+      - name: "model"
+        type: "string"
+        required: true
+        default: "qwen3-tts-flash"
+        options:
+          - "qwen3-tts-flash"
+          - "qwen3-tts-instruct-flash"
+        description: "TTS模型"
+      - name: "voice"
+        type: "string"
+        required: true
+        default: "Cherry"
+        options:
+          - "Cherry"
+          - "Moon"
+          - "Xiaoming"
+          - "Xiaofang"
+        description: "音色选择"
+      - name: "region"
+        type: "string"
+        required: false
+        default: "beijing"
+        options:
+          - "beijing"
+          - "singapore"
+        description: "服务地域"
+
+  baidu:
+    name: "百度智能云"
+    description: "百度AI开放平台TTS服务"
+    models:
+      - model_id: "ernie-tts"
+        name: "ERNIE TTS"
+        description: "百度ERNIE语音合成模型"
+      - model_id: "ernie-tts-v2"
+        name: "ERNIE TTS V2"
+        description: "百度ERNIE语音合成模型V2"
+    voices:
+      ernie-tts:
+        - voice_name: "DuXiaoxu"
+          name: "度小旭"
+          gender: "male"
+          description: "阳光活力的男声"
+        - voice_name: "DuMeiMei"
+          name: "度美美"
+          gender: "female"
+          description: "温柔甜美的女声"
+        - voice_name: "DuBao"
+          name: "度宝"
+          gender: "male"
+          description: "亲切自然的男声"
+      ernie-tts-v2:
+        - voice_name: "DuXiaoxu"
+          name: "度小旭"
+          gender: "male"
+          description: "阳光活力的男声"
+        - voice_name: "DuMeiMei"
+          name: "度美美"
+          gender: "female"
+          description: "温柔甜美的女声"
+    parameters:
+      - name: "api_key"
+        type: "string"
+        required: true
+        description: "百度API Key"
+      - name: "secret_key"
+        type: "string"
+        required: true
+        description: "百度Secret Key"
+      - name: "model"
+        type: "string"
+        required: true
+        default: "ernie-tts"
+        options:
+          - "ernie-tts"
+          - "ernie-tts-v2"
+        description: "TTS模型"
+      - name: "voice"
+        type: "string"
+        required: true
+        default: "DuXiaoxu"
+        options:
+          - "DuXiaoxu"
+          - "DuMeiMei"
+          - "DuBao"
+        description: "音色选择"
+
+  google:
+    name: "Google Text-to-Speech"
+    description: "Google Cloud TTS服务"
+    models:
+      - model_id: "text-to-speech"
+        name: "Standard"
+        description: "标准语音合成"
+      - model_id: "neural2"
+        name: "Neural2"
+        description: "神经语音合成"
+      - model_id: "wavenet"
+        name: "WaveNet"
+        description: "WaveNet高质量语音合成"
+    voices:
+      text-to-speech:
+        - voice_name: "zh-CN-Standard-A"
+          name: "标准音A"
+          gender: "female"
+          description: "中文女声"
+        - voice_name: "zh-CN-Standard-B"
+          name: "标准音B"
+          gender: "male"
+          description: "中文男声"
+        - voice_name: "zh-CN-Standard-C"
+          name: "标准音C"
+          gender: "female"
+          description: "中文女声"
+      neural2:
+        - voice_name: "zh-CN-Neural2-A"
+          name: "神经音A"
+          gender: "female"
+          description: "中文女声"
+        - voice_name: "zh-CN-Neural2-B"
+          name: "神经音B"
+          gender: "male"
+          description: "中文男声"
+      wavenet:
+        - voice_name: "zh-CN-Wavenet-A"
+          name: "WaveNet A"
+          gender: "female"
+          description: "中文女声"
+        - voice_name: "zh-CN-Wavenet-B"
+          name: "WaveNet B"
+          gender: "male"
+          description: "中文男声"
+    parameters:
+      - name: "api_key"
+        type: "string"
+        required: false
+        description: "Google API密钥（可选，优先使用环境变量）"
+      - name: "model"
+        type: "string"
+        required: true
+        default: "text-to-speech"
+        options:
+          - "text-to-speech"
+          - "neural2"
+          - "wavenet"
+        description: "TTS模型"
+      - name: "voice"
+        type: "string"
+        required: true
+        default: "zh-CN-Standard-A"
+        options:
+          - "zh-CN-Standard-A"
+          - "zh-CN-Standard-B"
+          - "zh-CN-Standard-C"
+        description: "音色选择"
+      - name: "language_code"
+        type: "string"
+        required: true
+        default: "zh-CN"
+        options:
+          - "zh-CN"
+          - "en-US"
+          - "ja-JP"
+        description: "语言代码"
+
+  azure:
+    name: "Azure Cognitive Services"
+    description: "Microsoft Azure语音服务"
+    models:
+      - model_id: "standard"
+        name: "Standard"
+        description: "标准语音合成"
+      - model_id: "neural"
+        name: "Neural"
+        description: "神经语音合成"
+    voices:
+      standard:
+        - voice_name: "zh-CN-XiaoxiaoNeural"
+          name: "晓晓"
+          gender: "female"
+          description: "中文女声"
+        - voice_name: "zh-CN-YunfengNeural"
+          name: "云峰"
+          gender: "male"
+          description: "中文男声"
+        - voice_name: "zh-CN-YunxiNeural"
+          name: "云希"
+          gender: "female"
+          description: "中文女声"
+      neural:
+        - voice_name: "zh-CN-XiaoxiaoNeural"
+          name: "晓晓"
+          gender: "female"
+          description: "中文女声"
+        - voice_name: "zh-CN-YunfengNeural"
+          name: "云峰"
+          gender: "male"
+          description: "中文男声"
+    parameters:
+      - name: "api_key"
+        type: "string"
+        required: true
+        description: "Azure API密钥"
+      - name: "region"
+        type: "string"
+        required: true
+        default: "eastasia"
+        options:
+          - "eastasia"
+          - "southeastasia"
+          - "centralus"
+        description: "服务区域"
+      - name: "model"
+        type: "string"
+        required: true
+        default: "neural"
+        options:
+          - "standard"
+          - "neural"
+        description: "TTS模型"
+      - name: "voice"
+        type: "string"
+        required: true
+        default: "zh-CN-XiaoxiaoNeural"
+        options:
+          - "zh-CN-XiaoxiaoNeural"
+          - "zh-CN-YunfengNeural"
+          - "zh-CN-YunxiNeural"
+        description: "音色选择"
